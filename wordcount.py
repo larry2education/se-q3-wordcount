@@ -25,7 +25,8 @@ should return a dictionary with words as keys, and their counts as values.
 
 # Your name, plus anyone who helped you with this assignment
 # Give credit where credit is due.
-__author__ = "Larry Scott with help from Howard; https://www.geeksforgeeks.org/python-list-index "
+__author__ = """Larry Scott with help from Howard;
+https://www.geeksforgeeks.org/python-list-index"""
 
 import sys
 
