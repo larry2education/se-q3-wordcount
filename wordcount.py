@@ -25,29 +25,45 @@ should return a dictionary with words as keys, and their counts as values.
 
 # Your name, plus anyone who helped you with this assignment
 # Give credit where credit is due.
-__author__ = "???"
+__author__ = """Larry Scott with help from Howard;
+https://www.geeksforgeeks.org/python-list-index"""
 
 import sys
 
 
 def create_word_dict(filename):
     """Returns a word/count dict for the given file."""
-    # Your code here
-    return
+    my_dict = {}
+    with open(filename) as f:
+        for line in f:
+            words = line.split()
+            for word in words:
+                if word.lower() in my_dict.keys():
+                    my_dict[word.lower()] += 1
+                else:
+                    my_dict[word.lower()] = 1
+    return my_dict
 
 
 def print_words(filename):
     """Prints one per line '<word> : <count>', sorted
     by word for the given file.
     """
-    # Your code here
-    return
+    the_words = create_word_dict(filename)
+
+    sorted_words = sorted(the_words.items())
+    for word in sorted_words:
+        print(word[0], " : ", word[1])
 
 
 def print_top(filename):
     """Prints the top count listing for the given file."""
-    # Your code here
-    return
+    the_words = create_word_dict(filename)
+
+    sorted_words = sorted(
+        the_words.items(), key=lambda kv: (kv[1], kv[0]), reverse=True)
+    for index in range(20):
+        print(sorted_words[index][0], " : ", sorted_words[index][1])
 
 
 # This basic command line argument parsing code is provided and calls
